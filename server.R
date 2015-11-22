@@ -1,10 +1,10 @@
-analisisticketsmensual <- function(mes, summarize = FALSE) 
-{
+
   library(lubridate)
   library(plyr)
   
-  
-  combined <<- fread('1.csv')
+  setwd("D:/KEEP_ISKAR/R/datos/TICKETS/TICKETS2015/datos/SM1")
+  readdata <- read.csv(paste(mes,".csv",sep="")
+
   colnames(combined) <<- c("Fecha", "Sesion", "Cajero", "Total", "Tienda")
   datatickets <<- c(combined$Total, na.rm= TRUE)
   numerodatos <- nrow(combined)
@@ -47,13 +47,12 @@ analisisticketsmensual <- function(mes, summarize = FALSE)
   
   cajeros <<- cbind(promedio_cajeros, numero_de_ventas[,2], suma_cajeros[,2])
 
-}
+
 
 shinyServer(
   function(input, output) {
-    input$mes <- 
-    output$year <- renderPrint({input$year})
-    output$tienda <- renderPrint({input$tienda})
-    output$mes1 <- renderPrint({input$mes1})
+    #input$mes <- renderPrint({input$mes})
+    output$mes <- renderPrint({input$mes})
+
   }
 )
